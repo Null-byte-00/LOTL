@@ -2,7 +2,7 @@
 This is a fileless living off the land reverse shell written in JScript and Powershell script. It runs every time the windows boots and relies solely on windows registry and environment variables to execute without creating any files on the system<br>
 Disclaimer: this program is only for educational purposes
 ## Proof of concept
-WARNING: Since changing windows registry keys can cause some problems, I really recomment running this program on a virtual machine<br>
+WARNING: Since editing windows registries can cause some problems, I really recommend running this program on a virtual machine<br>
 download the repository and run POC.hta file on your windows system<br>
 Now every time you reboot your windows a messagebox with 'living off the land' message will appear
 ![alt text](https://github.com/Null-byte-00/LOTL/blob/main/LOTL.png?raw=true)
